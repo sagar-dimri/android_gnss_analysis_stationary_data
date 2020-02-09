@@ -1,0 +1,82 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Android GNSS Analysis</title><meta name="generator" content="DocBook MathWorks XSL Stylesheets V1.75.2-mathworks"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="en" class="book" title="Android GNSS Analysis"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>Android GNSS Analysis</h1></div><div><h2 class="subtitle"></h2></div><div><p class="pubdate">09-Feb-2020 21:12:39</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#d0e9">Test Summary</a></span></dt><dt><span class="chapter"><a href="#d0e110">C/No Explanation</a></span></dt><dt><span class="chapter"><a href="#d0e132">Receiver Clock Explanation</a></span></dt><dt><span class="chapter"><a href="#d0e154">Pseudorange Explanation</a></span></dt></dl></div><div class="chapter" title="Test Summary"><div class="titlepage"><div><div><h2 class="title"><a name="d0e9"></a>Test Summary</h2></div></div></div><p><span class="bold"><strong> </strong></span><span> </span></p><pre class="programlisting">This analysis is for a stationary receiver, with open sky.</pre><pre class="programlisting"><sub><span class="gray" style="color:gray">Data directory: 
+~\Desktop\GnssAnalysisWindowsV3.0.3.0\demofiles\
+Log file: gnss_log_2016_06_30_21_26_07.txt
+GnssLogger: v1.4.0.0
+GNSS Analysis App: v3.0.3.0
+Phone: Google Model: Nexus 5
+Android version: 7.0
+</span></sub></pre><p><span><sub><span class="gray" style="color:gray">Note: Later Android version is available - check this website https://source.android.com/setup/start/build-numbers</span></sub></span></p><p title="API"><b>API.&nbsp;</b></p><pre class="programlisting">GnssClock Errors. None.
+GnssMeasurement Errors. None.
+WARNING, Recommended Fields Missing: CarrierFrequencyHz, AccumulatedDeltaRangeMeters, AccumulatedDeltaRangeUncertaintyMeters.</pre><pre class="programlisting"><span class="green" style="color:green"><span class="bold"><strong>PASS
+</strong></span></span></pre><p title="Received Signal Analysis"><b>Received Signal Analysis.&nbsp;</b></p><pre class="programlisting"><span class="bold"><strong>
+</strong></span></pre><p title="Received Signal Analysis"><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-001-hg.png" width="192"></span></p><pre class="programlisting">
+GPS(L1), mean of strongest 4 mean C/No = 37.3 dBHz
+Pass/fail reference threshold = 38.0 dBHz
+Error: L1 signals -0.7 dB compared to reference
+FAIL BECAUSE OF WEAK SIGNALS
+
+
+
+
+</pre><pre class="programlisting"><span class="red" style="color:red"><span class="bold"><strong>FAIL
+</strong></span></span></pre><p title="Received Signal Analysis"><a class="link" href="#cn0_explanation"> C/No explanation</a></p><p title="Receiver Clock Analysis"><b>Receiver Clock Analysis.&nbsp;</b></p><pre class="programlisting"><span class="bold"><strong>
+</strong></span></pre><p title="Receiver Clock Analysis"><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-002-hg.png" width="192"></span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-003-hg.png" width="192"></span></p><pre class="programlisting">|GNSS receiver clock rate|,  max, 14.36 ppb 
+|GNSS receiver clock drift rate|, not enough continuous data
+|Standby clock rate|, 511.96 ppm
+</pre><p title="Receiver Clock Analysis"><a class="link" href="#clock_explanation">Clock explanation</a></p><p title="Pseudorange Analysis"><b>Pseudorange Analysis.&nbsp;</b></p><pre class="programlisting"><span class="bold"><strong>
+</strong></span></pre><p title="Pseudorange Analysis"><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-004-hg.png" width="192" align="left"></span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-005-hg.png" width="192"></span></p><pre class="programlisting">|error| of mean WLS position from ref = median pos (from raw pr), 0.4 meters
+|PR errors| 95% &lt; 20.1 meters</pre><pre class="programlisting"><span class="green" style="color:green"><span class="bold"><strong>PASS
+</strong></span></span></pre><p title="Pseudorange Analysis">Pseudorange explanation</p></div><a name="cn0_explanation"></a><div class="chapter" title="C/No Explanation"><div class="titlepage"><div><div><h2 class="title"><a name="d0e110"></a>C/No Explanation</h2></div></div></div><pre class="programlisting">These plots show
+1) Satellites available above the horizon
+    Gray dot means the satellite was above the horizon, but not tracked.
+2) Carrier to Noise Density ratio (C/No) of the strongest satellites 
+    above 5 degrees elevation (bar graph)
+    Each bar shows the median C/No for that satellite signal.
+3) C/No of all satellites above 5 degrees elevation (line graph)
+
+</pre><p><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-007-hg.png"></span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-008-hg.png"></span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-009-hg.png"></span></p><pre class="programlisting">The GPS reference threshold is set to 38 dBHz. Well built phones, 
+in open sky, have GPS satellites stronger than this threshold. 
+GLONASS threshold is 2.5dB lower, since GLO signal is 2.5dB weaker, 
+(see GPS and GLONASS ICDs).
+
+For your log file the C/No results are:
+
+GPS(L1), mean of strongest 4 mean C/No = 37.3 dBHz
+Pass/fail reference threshold = 38.0 dBHz
+Error: L1 signals -0.7 dB compared to reference
+FAIL BECAUSE OF WEAK SIGNALS
+
+
+
+
+</pre></div><a name="clock_explanation"></a><div class="chapter" title="Receiver Clock Explanation"><div class="titlepage"><div><div><h2 class="title"><a name="d0e132"></a>Receiver Clock Explanation</h2></div></div></div><pre class="programlisting">This plot shows the clock frequency offset while the receiver is 
+continuously tracking satellites.
+Clock drift rate is computed for continuous intervals &gt; 20 samples.
+Frequency offset within +- 500 ppb, and drift rate within +- 2 ppb/s is 
+consistent with good TCXO behavior.
+</pre><p><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-011-hg.png"></span></p><pre class="programlisting">For your log file the continuous clock behavior is:
+  |GNSS receiver clock rate|,  max, 14.36 ppb 
+  |GNSS receiver clock drift rate|, not enough continuous data
+  
+</pre><pre class="programlisting">The next plot shows the (standby) clock drift across discontinuities. 
+This includes the clock behavior while duty-cycling.</pre><p><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-012-hg.png"></span></p><pre class="programlisting">For your log file the standby clock behavior is:
+  |Standby clock rate|, 511.96 ppm
+</pre></div><div class="chapter" title="Pseudorange Explanation"><div class="titlepage"><div><div><h2 class="title"><a name="d0e154"></a>Pseudorange Explanation</h2></div></div></div><pre class="programlisting">This plot shows the WLS (Weighted Least Squares) position solution, 
+using raw GNSS pseudoranges for satellites above 5 degrees elevation, </pre><p><span> </span><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-014-hg.png"></span></p><pre class="programlisting">In open sky the expected WLS horizontal scatter is about 10 to 20 meters. 
+Smaller when clock is continuous and pr is smoothed. Larger when near buildings.
+
+The next plots shows the pseudorange errors, that is:
+the measured pseudorange minus the expected pseudorange,
+computed using the reference position</pre><p><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-015-hg.png"></span></p><pre class="programlisting">Errors are computed from pseudoranges, smoothed where clock is continuous.
+Only satellites above 5 degrees elevation are shown.
+
+Under open sky, errors for high satellites should be &lt; 50 meters (95%).
+For your log file the error analysis results are:
+  |PR errors| 95% &lt; 20.1 meters
+  PASS
+
+The next plot shows the errors for all GNSS satellites. 
+The low satellites often have larger errors from multipath and
+unmodeled atmospheric delays.</pre><p><span class="inlinemediaobject"><img src="./GnssAnalysisReport_html_files/image-016-hg.png"></span></p></div></div></body></html>
